@@ -1,0 +1,6 @@
+DIY一个vue-cli的架子，并配置webpack,嵌套路由、嵌套视图。
+
+执行的命令
+    npm i vue vue-router -D
+    npm i css-loader style-loader -D
+
