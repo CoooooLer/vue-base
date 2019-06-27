@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件修饰符</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+
+        <form action="" @click="fn1()">
+            <input type="button" @click="fn2" value="按钮1">
+            <input type="button" @click.stop="fn2" value="按钮2">
+            <input type="button" @click.once="fn2" value="按钮2">
+        </form>
+
+        <form action="index.html" @submit.prevent.once="submit()">
+            <input type="submit" value="提交">
+        </form>
+
+            <input type="text" @keydown.enter.ctrl="fn3">
+
+
+    </div>
+
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+
+        },
+        methods: {
+            fn1() {
+                alert(11)
+            },
+            fn2() {
+                alert(222)
+            },
+            submit() {
+                console.log();
+            },
+            fn3() {
+                alert('keydown');
+            }
+        }
+    });
+</script>
+</body>
+</html>

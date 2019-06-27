@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="vue.js"></script>
+    <title>watch</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="name">
+        <input type="text" v-model="form.age">
+    </div>
+
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                name: '',
+                form: {
+                    age: 1,
+                }
+            },
+            watch: {
+                'name': function () {
+                    console.log('name changed')
+                },
+                'form.age': function () {
+                    console.log('age changed')
+                }
+            }
+        })
+    </script>
+</body>
+</html>

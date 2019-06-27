@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="vue.js"></script>
+    <script src="vue-router.js"></script>
+    <title>route</title>
+</head>
+<body>
+<div id="app">
+    app<br>
+    <router-link to="/news/123">aa</router-link>
+    <router-link :to="{name: 'user', params:{id: '11111111'}}">bb</router-link>
+    <router-view></router-view>
+</div>
+<script>
+    let router = new VueRouter({
+        routes: [
+            {
+                path: '/news/:id/',
+                name: 'news',
+                component: {
+                    template: `<div>新闻:{{$route.params.id}}</div>`,
+
+
+                },
+                beforeRouteUpdate(value, oldValue, next){
+                    console.log(value, oldValue);
+                }
+            },
+            {
+                path: '/user',
+                name: 'user',
+                component: {template: '<div>用户：{{ $route.params.id }}</div>'},
+            }
+        ]
+    });
+
+    let vm = new Vue({
+       el: '#app',
+        router: router,
+        watch: {
+           $route(newValue, oldValue){
+               // console.log(newValue, oldValue);
+           }
+        }
+    });
+</script>
+</body>
+</html>

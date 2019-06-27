@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="vue.js"></script>
+    <script src="vue-router.js"></script>
+    <title>多视图</title>
+</head>
+<body>
+    <div id="app">
+        <router-link to="/">首页</router-link>
+        <router-link to="/news">新闻</router-link>
+        <router-view name="header"></router-view>
+        <router-view></router-view>
+        <router-view name="footer"></router-view>
+    </div>
+
+    <script>
+        const headerTmp = {
+            template: '<div>头部</div>'
+        };
+
+        const footerTmp = {
+            template: '<div>底部</div>'
+        }
+
+        const indexTmp = {
+            template: '<div>首页</div>'
+        }
+
+        const newsTmp = {
+            template: '<div>新闻</div>'
+        }
+
+        let router = new VueRouter({
+            routes: [
+                {
+                    path: '/',
+                    name: 'index',
+                    components: {
+                        default: indexTmp,
+                        header: headerTmp,
+                        footer: footerTmp,
+                    }
+                },
+                {
+                    path: '/news',
+                    name: 'news',
+                    components: {
+                        default: newsTmp,
+                        header: headerTmp,
+                        footer: footerTmp,
+                    }
+                }
+            ]
+        });
+
+        let vm = new Vue({
+            el: '#app',
+            router: router,
+        })
+    </script>
+</body>
+</html>

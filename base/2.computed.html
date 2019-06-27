@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>computed</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<!--    <div id="app">-->
+<!--        {{ a }} + {{ b }} = {{ sum }}-->
+<!--    </div>-->
+    <script>
+        // var vm = new Vue({
+        //     el: '#app',
+        //     data: {
+        //         a: 1,
+        //         b: 2,
+        //     },
+        //     // methods: {
+        //     //     sum() {
+        //     //         return this.a + this.b;
+        //     //     }
+        //     // }
+        //     computed: {
+        //         sum() {
+        //             return this.a + this.b ;
+        //         }
+        //     }
+        //
+        // })
+    </script>
+
+<div id="app2">
+    firstName: <input type="text" v-model="firstName"><br>
+    lastName: <input type="text" v-model="lastName"><br>
+    <input type="text" v-model="name">
+</div>
+
+
+<script>
+    var vm = new Vue({
+        el: '#app2',
+        data: {
+            firstName: '李',
+            lastName: '四',
+        },
+        computed: {
+            name: {
+                set(value) {
+                    this.firstName = value[0];
+                    this.lastName = value.substring(1);
+                },
+                get() {
+                    return this.firstName + this.lastName;
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>
