@@ -1,0 +1,116 @@
+webpack配置所涉及的文件夹和文件：
+    config文件夹
+    package.json的scripts添加以下代码：
+        "start": "webpack-dev-server --env.development",
+        "build": "webpack --env.production"
+
+
+    npm run start  // 开发者环境
+
+    npm i vue-loader vue-style-loader vue-html-loader vue-template-compiler -D
+
+——————————————————————————————————————————————————————————————————————————————————————————————————
+组件生命周期
+
+    new Vue({})
+    Vue.component({})
+
+    created     数据操作
+    mounted     操作元素
+
+-------------------------------------------------------------------------------------
+父子组件通信(方法1，不推荐使用，高耦合)
+
+    父级->子级
+       给子级设置ref，通过ref操作子级的数据或者方法。
+       例如：
+           父级组件：
+            methods: {
+                fn() {
+                  this.$refs.child1.num++; // 调用子级的num
+                },
+                fn1() {
+                  this.$refs.child1.a(); // 调用子级的a()方法
+                },
+              },
+              template: `
+                <div>
+                  父级>
+                  <input type="button" @click="fn()" value="+1">
+                  <input type="button" @click="fn1()" value="-1">
+                  <div>
+                    <child ref="child1"></child>
+                  </div>
+                </div>
+              `
+            子级组件：
+                data(){
+                    return {
+                      num: 0,
+                    }
+                  },
+                  methods: {
+                    a() {
+                      this.num--;
+                    }
+                  },
+                  template: `
+                    <div>
+                      子级{{ num }}
+                    </div>
+                  `
+
+
+
+子级->父级
+    父组件：
+         components: {
+            Child,
+          },
+          data() {
+            return {
+              num: 0
+            }
+          },
+          methods: {
+           fn() {
+             this.num += 5;
+           }
+          },
+          template: `
+            <div>
+              父级>{{ num }}
+              <div>
+                <child :parent="this"></child>
+              </div>
+            </div>
+          `
+    子组件：
+         props: {
+            parent: {
+              type: Object
+            }
+          },
+          methods: {
+            fn1() {
+              this.parent.num++;
+            },
+            fn2() {
+              this.parent.fn();
+            },
+          },
+          template: `
+            <div>
+              子级
+              <input type="button" value="+1" @click="fn1()">
+              <input type="button" value="+5" @click="fn2()">
+            </div>
+          `
+
+---------------------------------------------------------------------------
+组件事件
+    $emit
+    $on
+    $off
+    $once
+

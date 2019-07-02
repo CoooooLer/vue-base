@@ -1,0 +1,15 @@
+webpack热更新
+执行命令：
+    npm i webpack-dev-server -D
+    npm i webpack webpack-cli -D
+    npm i style-loader css-loader -D   // 解析css
+    npm i file-loader -D                // 解析字体
+    webpack-dev-server
+
+注意事项：
+    在package.json的scripts添加如下的一句话：
+        "start": "webpack-dev-server"  // 启动webpack热更新的命令
+
+    修改index.html中引入的script文件如下：
+        <script src="bundle.min.js"></script>
+
