@@ -1,0 +1,12 @@
+
+vuex
+    数据跨组件共享，
+    防止数据意外修改
+
+$store.commit('mutation_name', params)
+$store.dispatch('action_name', params)
+------------------------------------------------------------------------------------
+
+state--存储、数据
+mutation--修改数据、追踪；同步
+action--封装：组合；异步   通过action调用mutation的方法修改数据
