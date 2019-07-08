@@ -1,0 +1,4 @@
+npm init -y
+npm i koa koa-static koa-router -D
+
+node server.js

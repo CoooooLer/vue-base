@@ -8,5 +8,14 @@ $store.dispatch('action_name', params)
 ------------------------------------------------------------------------------------
 
 state--存储、数据
-mutation--修改数据、追踪；同步
+mutation--修改数据、追踪修改的数据；同步
 action--封装：组合；异步   通过action调用mutation的方法修改数据
+getters--计算属性
+
+------------------------------------------------------------
+
+vuex辅助方法
+
+    mapState        将state映射到computed
+    mapActions      将actions映射到methods
+    mapGetters      将getters映射到computed
