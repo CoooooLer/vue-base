@@ -11,6 +11,11 @@ export default new Router({
       name: 'home',
       component: Home
     },
+    {
+      path: '/animate',
+      name: 'animate',
+      component: () => import(/* webpackChunkName: "about" */ './views/animate.vue')
+    },
     // {
     //   path: '/about',
     //   name: 'about',

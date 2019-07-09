@@ -1,7 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-Vue.use(Vuex)
+Vue.use(Vuex);
+
+import ModA from './mod_a'
+import ModB from './mod_b'
 
 export default new Vuex.Store({
   state: {
@@ -64,4 +67,8 @@ export default new Vuex.Store({
       return state.users.filter(user => user.online);
     }
   },
+  modules: {
+    mod_a: ModA,
+    mod_b: ModB,
+  }
 })

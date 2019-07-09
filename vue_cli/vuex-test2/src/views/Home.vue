@@ -12,6 +12,9 @@
         年龄： {{ user.age }}
       </li>
     </ul>
+    <hr>
+    store_a: {{ store_a }} <br>
+    store_B: {{ store_b }}
 <!--    <div>count:{{ $store.getters.count }}</div>-->
 <!--    <div>count: {{ count }}</div>-->
 <!--    <cmp1/>-->
@@ -47,16 +50,26 @@ export default {
   },
   async created() {
     await this.readUser();
+
+    // this.$store.commit('setStr', '123');
+    this.setStr('11');
   },
   methods: {
     del(id) {
       this.datas = this.datas.filter(data => data.id != id);
     },
     ...mapActions(['addA', 'addB', 'setOnline', 'readUser']),
+    ...mapActions(['setStr']),
   },
   computed: { // 可读可写
     ...mapState(['a', 'b', 'users']),
     ...mapGetters(['count', 'online']),
+    ...mapState({
+      'store_a': function (state) {
+        return state.mod_a.str;
+      },
+      'store_b': state => state.mod_b.str,
+    }),
     // count: {
     //   get(){
     //     return this.$store.getters.count;
