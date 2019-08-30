@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  window.onload = function () {
+    let div = document.getElementById('app');
+    let str = 'sdfasdf sdf ## dsfsd f## df sd## df sdf ds ';
+
+    // div.innerHTML = str.replace(/##/g, '</br>');
+    div.innerHTML = str.split('##').map(item => {
+      return `<p>${item}</p>`
+    }).join('');
+  }
+</script>
+
+  <div id="app">
+
+  </div>
+</body>
+</html>

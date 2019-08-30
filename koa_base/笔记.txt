@@ -1,0 +1,40 @@
+npm i koa koa-router -D
+npm i koa-static -D  // 处理静态文件
+npm i koa-better-body -D // 处理get、post请求
+npm i koa-session -D
+
+----------------------------------------------------
+
+ctx.params
+ctx.query
+ctx.method
+ctx.url
+
+---------------------------------------------------
+
+server.context
+
+--------------------------------------------------
+
+ctx.method
+ctx.url
+ctx.path
+ctx.query           get数据
+ctx.ip
+
+ctx.headers
+
+-------------------------------------
+
+ctx.throw()
+ctx.assert()
+
+---------------------------------------------------------------
+
+koa-bette-body
+ctx.request.fields
+
+-------------------------------------
+
+koa-session
+

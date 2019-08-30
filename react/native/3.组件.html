@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <title>Title</title>
+</head>
+<body>
+  <div id="app">
+
+  </div>
+
+  <script type="text/babel">
+    class Cmp1 extends React.Component{
+      constructor(...args) {
+        super(...args);
+
+        this.name = "blue";
+        this.age = 11;
+      }
+
+      fn() {
+        return 'hello';
+      }
+
+      render() {
+        let div = <div style={ {color: 'blue'} }>div盒子</div>;
+
+        let arr = [];
+        for(let i=0; i<5; i++) {
+          arr.push(
+              <li key={i}>{i}</li>
+          );
+        }
+
+        return (
+            <div>
+              姓名:{this.name} <br/>
+              年龄:{this.age} <br/>
+              {this.fn()}
+              {div}
+              <ul>
+                {arr}
+              </ul>
+            </div>
+        );
+      }
+    }
+
+    let root = document.getElementById('app');
+
+    ReactDOM.render(
+        <div>
+          1321321
+          <Cmp1></Cmp1>
+        </div>,
+        root
+    );
+
+  </script>
+</body>
+</html>

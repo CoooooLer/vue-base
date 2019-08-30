@@ -1,0 +1,2 @@
+npm i koa koa-router koa-static koa-ejs await-fs -D
+

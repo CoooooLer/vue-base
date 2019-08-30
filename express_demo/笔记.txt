@@ -1,0 +1,22 @@
+npm i express -D
+npm i body-parser -D
+npm i multer -D
+npm i cookie-parser -D
+
+____________________________________________________________________
+
+处理get、post数据
+
+    GET： req.query
+    POST:  安装插件body-parser
+
+---------------------------------------------------------------------
+
+处理上传文件 ： 利用插件 multer
+
+---------------------------------------------------------------------------
+
+cookie : 利用插件 cookie-parser
+
+
+session: 插件 cookie-session

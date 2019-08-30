@@ -1,0 +1,16 @@
+body{
+    /*background: url("../img/boom.jpg");*/
+    background: mediumvioletred;
+}
+
+.box{
+    width: 200px;
+    height: 200px;
+    border: 1px solid #000;
+    transform: rotate(90deg);
+    transition: all 1s ease;
+    background: url("../img/big.jpg");
+}
+.box:hover{
+    transform: rotate(-90deg);
+}

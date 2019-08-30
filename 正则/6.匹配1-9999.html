@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  window.onload = function () {
+    let num  = document.getElementById('num');
+    let btn  = document.getElementById('btn');
+    btn.onclick = function () {
+      console.log(num.value)
+      let re = /^(\d{1,4})$/;
+      if(re.test(num.value)) {
+        alert('success');
+      } else {
+        alert('false');
+      }
+    }
+  }
+
+</script>
+<input type="text" id="num">
+<input type="button" id="btn" value="测试">
+</body>
+</html>

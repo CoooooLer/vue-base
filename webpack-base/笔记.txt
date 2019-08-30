@@ -1,0 +1,54 @@
+ES6模块化
+
+    webpack
+    npm i webpack -g
+
+______________________________________________________________________________
+
+webpack编译：
+    1、entry——入口地址
+    2、output——输出
+        path: 绝对路径
+        filename: 文件名
+    3、mode——模式
+    4、所有当前路径前面加 ./
+
+------------------------------------------------------------------------------------------
+
+export  => mod1.js
+
+    导出一个变量
+    export let a = 11;
+
+    导出多个变量
+    let a = 1, b = 3, c = 33;
+    export {a, b, c};
+
+    导出方法
+    export function xxx() {
+
+    };
+
+    导出类
+    export class xxx{
+
+    }
+
+    导出默认值
+    export default xx;
+
+import => index.js
+
+    import * from "./mod";
+    import {a, b, c}  from ".mod";
+
+    引入默认成员
+     import xxx from './mod';
+
+     模块的代码引入进来，不引入内部成员
+     import "./1.jpg";
+     import "./1.css";
+
+     异步引入
+     let promise = import("./mod1");
+

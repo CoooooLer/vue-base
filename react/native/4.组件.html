@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <title>Title</title>
+</head>
+<body>
+  <div id="app">
+
+  </div>
+
+  <script type="text/babel">
+    class Cmp1 extends React.Component{
+      constructor(...args) {
+        super(...args);
+
+        this.name = 'mike';
+      }
+
+      fn() {
+        return 'hello';
+      }
+
+      render() {
+        let datas = [
+          { name: 'mike', age: 11 },
+          { name: 'jane', age: 22 },
+          { name: 'john', age: 33 }
+        ];
+
+        return (
+            <div>
+              <ul>
+                { datas.map((data, index) =>
+                    <li key={ index }>
+                      姓名: { data.name } <br/>
+                      年龄:{ data.age }
+                    </li>)
+                }
+              </ul>
+            </div>
+        )
+      }
+
+
+    }
+
+
+    let root = document.getElementById('app');
+
+    ReactDOM.render(
+        <div>
+          <Cmp1></Cmp1>
+        </div>,
+        root
+    );
+  </script>
+</body>
+</html>
